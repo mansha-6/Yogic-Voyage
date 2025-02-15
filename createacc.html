@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="createacc.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="overlay"></div>
+        <img src="./images/createacc.jpg" alt="Background" class="background-image">
+        
+        <div class="create-account-container">
+            <h1>Create Account</h1>
+            <form id="createAccountForm">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="firstName" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="submit-button">Create Account</button>
+            </form>
+            <a href="index2.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("createAccountForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const firstName = document.getElementById("first-name").value.trim();
+            const lastName = document.getElementById("last-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (!firstName || !lastName || !email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Simulating backend processing
+            alert("Account created successfully!");
+            window.location.href = "index2.html"; // Redirect to home page after signup
+        });
+    </script>
+</body>
+</html>

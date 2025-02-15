@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+}
+
+.cover {
+    position: relative;
+    height: 105vh;
+    width: 174vh;
+    /* left: 50px; */
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter:none;
+    border-radius: 10px; /* Optional: for rounded edges */
+    border-top-left-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1); /* Optional: Add some depth */
+}
+/* .overlay {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+} */
+/* .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  
+    z-index: 1; 
+}*/
+
+
+.overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.trial-form {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+}
+
+.input-field, .action-button {
+    padding: 15px 5px;
+    font-weight: bold; /* Consistent bold text */
+    border: 2px solid whitesmoke; /* Unified border size */
+    border-radius: 50px; /* Cylindrical shape */
+    outline: none;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all effects */
+    width: 500px; /* Same width for both elements */
+    text-align: center;
+    font-style: italic;
+    font-family: cursive;
+    text-align: center;
+    z-index: 1000;
+}
+
+.input-field {
+    background-color: transparent;
+    /* color: white; */
+}
+
+.input-field::placeholder {
+    color: rgb(234, 243, 234);
+    font-size: 2rem;
+    
+}
+
+.input-field:focus {
+    /* border-color: #007BFF; */
+    background-color: rgba(27, 59, 15, 0.326);
+    /* color: #007BFF; */
+}
+
+.action-button {
+    padding: 15px 15px;
+    background-color: rgb(60, 90, 60);
+    color: white;
+    border: 2px solid whitesmoke; /* Same border as input */
+    cursor: pointer;
+    font-size: 1.5rem; /* Unified font size */
+}
+
+.action-button:hover {
+    background-color: rgb(90, 111, 90);
+}
+
+.signin-box {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    background-color: rgb(60, 90, 60);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    border: 5px solid rgb(168, 122, 122);
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    font-style: italic;
+    font-family: cursive;
+    font-weight: bold;
+    width: auto; /* Auto width for dynamic resizing */
+    text-align: center;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+.signin-box:hover {
+    background-color: rgb(112, 142, 112);
+    color: white;
+}
+.login-box {
+    position: absolute;
+    top: 20px;
+    right: 230px;
+    background-color: rgb(60, 90, 60);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    border: 5px solid rgb(168, 122, 122);
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    font-style: italic;
+    font-family: cursive;
+    font-weight: bold;
+    width: auto; /* Auto width for dynamic resizing */
+    text-align: center;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+.login-box:hover {
+    background-color: rgb(112, 142, 112);
+    color: white;
+}
+.message-container {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: red; /* Default color for error */
+    visibility: visible; /* Always visible if content is added */
+    min-height: 20px; /* Ensure consistent spacing */
+}
+
+/* Smooth Scroll for View Programs */
+html {
+    scroll-behavior: smooth;
+}
+
+.view-programs{
+    position: absolute;
+    top: 20px;
+    right: 410px;
+    background-color: rgb(60, 90, 60);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    /* border: 2px solid whitesmoke;*/
+    border: 5px solid rgb(168, 122, 122);
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    font-style: italic;
+    font-family: cursive;
+    font-weight: bold;
+    width: auto; /* Auto width for dynamic resizing */
+    text-align: center;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+.view-programs:hover {
+    background-color: rgb(112, 142, 112);
+    color: white;
+}
+
+
+
+
+/* ----------3rd------- */
+
+.view-workouts {
+    position: absolute;
+    top: 20px;
+    right: 710px; /* Adjust position relative to workout header */
+    background-color: rgb(60, 90, 60);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: white;
+    /* border: 2px solid whitesmoke; */
+    border: 5px solid rgb(168, 122, 122);
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    font-style: italic;
+    font-family: cursive;
+    font-weight: bold;
+    width: auto;
+    text-align: center;
+    z-index: 1000;
+}
+
+.view-workouts:hover {
+    background-color: rgb(112, 142, 112);
+    color: white;
+}
+
+/* Contact Us Section */
+#contact-us {
+    text-align: center;
+    padding: 50px;
+    background-color: #fdf8f2; /* Light beige background */
+}
+
+#contact-us h2 {
+    font-size: 4.5rem;
+    font-weight:bolder;
+    margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.contact-item {
+    text-align: center;
+    flex: 1;
+    max-width: 500px;
+    max-height: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.contact-item h3 {
+    font-size: 2.5rem;
+    color: #333;
+    /* margin-bottom: 10px; */
+    text-align:center; 
+}
+
+.contact-item p {
+    font-size: 1.8rem;
+    color: #555;
+    line-height: 1.5;
+    display: flex; /* Flexbox for image and text alignment */
+    align-items: center; /* Vertically center the image and text */
+    justify-content: flex-start; /* Align image and text to the left */
+    gap: 15px; /* Space between the image and paragraph text */
+    text-align: left; /* Ensure text is left-aligned */
+    margin-top: 0; /* Remove margin from p */
+}
+
+.contact-item img {
+    max-width: 50px;
+    max-height: 70px;
+    /* margin-top: 50px; */
+}

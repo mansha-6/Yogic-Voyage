@@ -1,0 +1,627 @@
+
+.section-header {
+    font-size: 6.5rem;
+    text-align: center; /* Center align text */
+    margin-bottom: 10px; /* Add space below the header */
+    margin-top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+
+    /* Gradient Text Styling */
+    background: linear-gradient(90deg, #FF5733, #33C1FF); /* Two colors */
+    -webkit-background-clip: text; /* Clips the gradient to text */
+    -webkit-text-fill-color: transparent; /* Makes the text fill transparent */
+    background-clip: text; /* Ensures it works in modern browsers */
+    
+}
+
+/* Workout Section */
+
+#workout-section {
+    background-image: url('./images/line2.png'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 120px 20px; /* Adds padding for spacing */
+    color: white; /* Ensures text is visible on darker backgrounds */
+    text-align: center; /* Centers the text */
+    position: relative; /* Ensures the overlay is positioned correctly */
+    z-index: 1; /* Ensures the content stays on top */
+    border-radius: 10px;
+}
+
+/* Semi-Transparent Overlay */
+#workout-section::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; /* Places it behind the content */
+    border-radius: 10px;
+}
+
+/* Workout Container */
+.workout-container {
+    display: grid;
+    /* ; 
+    grid-template-rows: 1fr;
+    justify-items: center;  
+    align-items: center; */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    position: relative;
+    z-index: 1;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    background-image: url('./images/imgbg2.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: hidden;
+}
+
+/* Semi-Transparent Overlay for Workout Container */
+.workout-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 0;
+}
+/* .workout-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; 
+    padding: 10px; 
+} */
+
+/* Workout Item*/ 
+.workout-item {
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 200px; 
+    width: 200px;
+}
+
+/* Hover Effect */
+.workout-item:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 153, 102, 0.9); 
+    border-color: rgba(255, 153, 102, 1);
+}
+/* .workout-item img {
+    width:100%;
+    height: 100%;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; 
+    padding: 10px; 
+} */
+
+/* .workout-item .title {
+    font-size: 1rem; 
+    font-weight: bold; 
+    color: #333; 
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .workout-container {
+        grid-template-columns: 1fr; /* Stack items vertically on small screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .workout-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+.title  { 
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -30px; 
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+/* ---------img--------- */
+
+.workout-item.aerobics img {
+    width: 650px; 
+    height: 450px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+}
+.workout-item.zumba img{
+    width: 650px; 
+    height: 450px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+}
+
+.workout-item.swiss img{
+    width: 650px; 
+    height: 450px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.stick img{
+    width: 650px; 
+    height: 550px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.yoga img{
+    width: 650px; 
+    height: 650px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.medi img{
+    width: 650px; 
+    height: 650px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.partner img{
+    width: 650px; 
+    height: 650px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.chair img{
+    width: 650px; 
+    height: 650px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+.workout-item.aerial img{
+    width: 650px; 
+    height: 650px;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; 
+}
+/* ----------t2--------- */
+.workout-item.yoga .t2{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -20px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+
+.workout-item.medi .t2{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -18px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+.workout-item.stick .t2{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -220px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+/* --------t2 completed------------ */
+/* --------t3-------- */
+.workout-item.partner .t3{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -20px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+.workout-item.chair .t3{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -20px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+.workout-item.aerial .t3{
+    font-weight: bold; 
+    color: #333; 
+    margin-top: -20px;
+    text-align: center; 
+    text-transform: capitalize;
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+/* ---------t3 completed------ */
+/*--------- container---------*/
+
+.workout-item.aerobics{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 500px; 
+    width: 670px;
+}
+.workout-item.zumba{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 500px; 
+    width: 670px;
+    margin-left: 30px;
+}
+.workout-item.swiss{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 500px; 
+    width: 670px;
+    margin-left: 30px;
+}
+.workout-item.stick{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 580px; 
+    width: 670px;
+    margin-top: 20px;
+    
+}
+.workout-item.yoga{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 670px;
+    margin-top: 20px;
+    margin-left: 20px;
+    
+}
+.workout-item.medi{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 670px;
+    margin-top: 20px;
+    
+}
+.workout-item.partner{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 670px;
+    margin-top: 20px;
+    
+}
+.workout-item.chair{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 690px; 
+    width: 670px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.workout-item.aerial{
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 670px;
+    margin-top: 20px;
+}
+
+/* ------Particular image setting------ */
+ .aerobics {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    gap: 20px; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 400px; 
+    width: 500px;
+    margin-bottom: 20px;
+} 
+
+.zumba {
+    display: grid;
+    grid-column: 2; 
+    grid-row: 1;
+    gap: 20px; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 400px; 
+    width: 500px;
+}
+
+.swiss {
+    display: grid;
+    grid-column: 3; 
+    grid-row: 1;
+    gap: 20px; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 400px; 
+    width: 500px;
+}
+
+.stick {
+    display: grid;
+    grid-column: 1; 
+    grid-row: 2;
+    gap: 200px; 
+    padding: 200px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 400px; 
+    width: 500px;
+}
+.yoga{
+    grid-column: 2; 
+    grid-row: 2;
+    gap: 200px; 
+    padding: 200px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 500px;
+}
+.medi{
+    grid-column: 3; 
+    grid-row: 2;
+    gap: 200px; 
+    padding: 200px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 500px;
+}
+.partner{
+    grid-column: 1; 
+    grid-row: 3;
+    gap: 200px; 
+    padding: 200px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 500px; 
+    width: 500px;
+}
+.chair{
+    grid-column: 2; 
+    grid-row: 3;
+    gap: 200px; 
+    padding: 200px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    text-align: center;
+    padding: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    height: 700px; 
+    width: 500px;
+}
+/*-------3rd page finished-------- */

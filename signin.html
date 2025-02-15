@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <div class="background-container">
+        <!-- Background Image -->
+        <div class="overlay"></div>
+        <!-- <img src="./images/yogic-1.jpg" alt="Background" class="background-image"> -->
+        <img src="./images/sign.png" alt="Background" class="background-image">
+
+        
+        <!-- Sign-In Form -->
+        <div class="sign-in-container">
+            <button class="close-button">&times;</button>
+
+            <h1>SIGN IN</h1>
+            <form id="signin-form">  <!-- ✅ Added id="signin-form" -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="password" placeholder="Password" required>
+                        <span class="toggle-password">👁️</span>
+                    </div>
+                </div>
+                <button type="submit" class="sign-in-button" id="signInBtn">SIGN IN</button> <!-- ✅ Changed to "submit" -->
+            </form>
+            <a href="#" class="forgot-password">Forgot your password?</a>
+            <div class="divider">
+                <span>OR</span>
+            </div>
+            <a href="createacc.html" class="create-account">Create an account</a>
+        </div>
+    </div>
+
+    <script src="signin.js"></script>
+</body>
+</html>
