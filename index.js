@@ -1,3 +1,4 @@
+
 const texts = ["Yoga", "Meditation", "Breathwork", "Ayurveda"];
 const images = ["images/yogaunsplash.jpg", "images/mediunsplash.jpg", "images/breatheunsplash.jpg", "images/ayurunsplash.jpg"];
 let index = 0;
