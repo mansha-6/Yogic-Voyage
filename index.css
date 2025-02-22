@@ -29,6 +29,7 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 1200px;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 .header img {
@@ -45,6 +46,17 @@ body {
     font-style: italic;
     margin-right: 500px;
 }
+/* @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .header h2 {
+        margin-right: 0; 
+    }
+} */
+
 
 /* Button Styles */
 .sign-in, .view-programs, .view-workouts {
@@ -77,6 +89,16 @@ body {
     background-color: #ff6347;
     transform: translateY(-2px); /* Slight lift effect */
 }
+/* @media (max-width: 768px) {
+    .sign-in, .view-programs, .view-workouts {
+        position: relative;
+        display: block;
+        width: 80%; 
+        margin: 0.5rem auto; 
+        text-align: center;
+    }
+} */
+
 
 /* Section Styles */
 .section {
@@ -104,6 +126,14 @@ body {
     height: 65vh;
     margin-right: 100px;
 }
+/* @media (max-width: 768px) {
+    .yoga-image {
+        width: 80%;
+        height: auto;
+        margin-right: 0;
+    }
+} */
+
 
 h1 {
     font-size: clamp(3rem, 5vw, 3rem); /* Responsive font size */
@@ -152,7 +182,101 @@ p {
 .email-form button:hover {
     background-color: #ff6347;
 }
+/* Media Queries for Mobile Responsiveness */
+/* Media Queries for Mobile Responsiveness */
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Header Styles */
+    .header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        justify-content: center; /* Center content */
+        padding: 1rem; /* Add padding for spacing */
+        margin-bottom: 1rem; /* Add margin below the header */
+    }
 
+    .header img {
+        height: 80px; /* Adjust image size for mobile */
+        margin-bottom: 0.5rem; /* Add margin below the image */
+        margin-right: 33rem;
+        margin-top: -1rem;
+    }
+
+    .header h2 {
+        font-size: 2.5rem; /* Adjust font size for mobile */
+        /* margin: 0 0 20rem 0; */
+        margin-left: 8rem;
+        margin-top: -6rem;
+        text-align: center; /* Center text */
+    }
+
+    /* Button Styles */
+    .sign-in {
+        position: relative; /* Change position for stacking */
+        display: block; /* Stack button */
+        width: 60%; /* Full width on mobile */
+        margin: 0.5rem auto; /* Center button */
+        text-align: center; /* Center text */
+        padding: 0.3rem; /* Adjust padding */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .view-programs, .view-workouts {
+        position: relative; /* Change position for stacking */
+        display: block; /* Stack buttons */
+        width: 60%; /* Full width on mobile */
+        margin-left: 8rem;
+        margin-right: -3rem;
+        margin-bottom: 1.3rem;
+        text-align: center; /* Center text */
+        padding: 0.3rem; /* Adjust padding */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    /* Section Styles */
+    .section {
+        height: auto; /* Allow height to adjust */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        padding: 1rem; /* Add padding for spacing */
+        margin-top: 3rem; /* Adjust margin */
+    }
+
+    .text-content {
+        width: 100%; /* Full width on mobile */
+        text-align: center; /* Center text */
+        margin-top: 1rem; /* Add margin above text content */
+    }
+
+    h1 {
+        font-size: 2rem; /* Adjust font size for mobile */
+        margin: 1rem 0; /* Add margin above and below */
+    }
+
+    p {
+        font-size: 1rem; /* Adjust font size for mobile */
+        line-height: 1.4; /* Adjust line height */
+        text-align: center; /* Center text */
+    }
+
+    /* Email Form Styles */
+    .email-form {
+        width: 100%; /* Full width for the form */
+        padding: 0 1rem; /* Add padding for spacing */
+    }
+
+    .email-form input {
+        width: 100%; /* Full width on mobile */
+        padding: 0.5rem; /* Reduced padding */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .email-form button {
+        width: 100%; /* Full width on mobile */
+        padding: 0.5rem; /* Reduced padding */
+        font-size: 1rem; /* Adjust font size */
+    }
+}
 /* Animation Section */
 .animation-section {
     min-height: 60vh; /* Reduced height */
@@ -172,7 +296,22 @@ p {
     font-weight: bold;
     margin-bottom: 1rem; /* Reduced margin */
 }
+@media (max-width: 768px) {
+    .animated-image {
+        width: 80vw; /* Use a larger percentage for mobile */
+        height: 80vw; /* Keep it circular */
+        max-width: none; /* Remove max-width constraint */
+        max-height: none; /* Remove max-height constraint */
+    }
 
+    .animation-section h2 {
+        font-size: 2rem; /* Adjust font size for mobile */
+    }
+
+    #changing-text {
+        font-size: 1.5rem; /* Adjust font size for mobile */
+    }
+}
 #highlight {
     font-style: italic;
     color: #ff7f50;
@@ -186,23 +325,25 @@ p {
 
 /* Circular Animation with Border */
 .animated-image {
-    width: 500px; /* Adjusted size */
-    height: 500px; /* Adjusted size */
+    width: 50vw; /* Use viewport width for responsiveness */
+    height: 50vw; /* Keep it circular */
+    max-width: 500px; /* Set a max width */
+    max-height: 500px; /* Set a max height */
     border-radius: 50%; /* Circular shape */
-    overflow: hidden;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden; /* Hide overflow */
+    margin: 20px auto; /* Center it */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center content */
+    align-items: center; /* Center content */
     border: 5px solid #ff7f50; /* Orange border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* 3D effect */
 }
 
 .animated-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 1s ease-in-out;
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the area without distortion */
+    transition: opacity 1s ease-in-out; /* Transition effect */
 }
 
 /* Offerings Section */
@@ -287,6 +428,7 @@ p {
         font-size: 1.5rem; /* Adjusted for better responsiveness */
     }
 }  
+
  /* New Year Section */
 .new-year-section {
     position: relative;
@@ -358,6 +500,15 @@ p {
     opacity: 1 !important;
     animation: fadeIn 2s ease-out forwards;
 }
+@media (max-width: 500px) {
+    .new-year-title {
+        font-size: 2rem;
+    }
+    .new-year-subtitle {
+        font-size: 1rem;
+    }
+}
+
 
 /* Button Styling */
 .explore-button {
@@ -451,8 +602,9 @@ p {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 23vh;
+    height: auto; /* Allow height to adjust */
     background: linear-gradient(to bottom, #f4f2f2, #c8e0f9);
+    padding: 20px; /* Add padding for spacing */
     text-align: center;
     /* position: relative; */
 }
@@ -461,19 +613,35 @@ p {
     font-size: 2rem; /* Reduced font size */
     font-weight: bold;
     color: #222222;
-    margin-top: 3%;
+    margin-top: 2%;
 
 }
 .fourth-section p {
     font-size: 1.3rem; /* Reduced font size */
     color: #292929;
-    max-width: 60%;
+    max-width: 90%;
     line-height: 1.6;
-    white-space: nowrap; /* Prevent text from wrapping */
-    margin-right: 9%;
-    margin-top: 3%;
-}
+    text-align: center; /* Center text */
+margin-top: 25px;}
+@media (max-width: 768px) {
+    .fourth-section {
+        height: auto; /* Allow height to adjust */
+        padding: 20px; /* Add padding for spacing */
+    }
 
+    .fourth-section h2 {
+        font-size: 1.5rem; /* Adjust font size for mobile */
+        margin: 1rem 0; /* Adjust margin */
+    }
+
+    .fourth-section p {
+        font-size: 1rem; /* Adjust font size for mobile */
+        line-height: 1.5; /* Adjust line height */
+        max-width: 90%; /* Allow more width on mobile */
+        margin: 0 auto; /* Center the paragraph */
+        padding: 0 10px; /* Add some padding for spacing */
+    }
+}
 /* Fifth Section */
 .fifth-section {
     display: flex;
@@ -517,6 +685,24 @@ p {
 .fifth-section ul li {
     padding: 0.5rem 0; /* Reduced padding */
 }
+@media (max-width: 768px) {
+    .fifth-section {
+        height: auto; /* Allow height to adjust */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    .fifth-section h2 {
+        font-size: 1.5rem; /* Adjust font size for mobile */
+    }
+
+    .fifth-section p {
+        font-size: 1rem; /* Adjust font size for mobile */
+        max-width: 90%; /* Allow more width on mobile */
+        line-height: 1.5; /* Adjust line height */
+        text-align: center; /* Center text */
+    }
+}
+
 
 /* Contact Us Section */
 #contact-us {
@@ -570,4 +756,29 @@ p {
 .contact-item img {
     max-width: 30px; /* Reduced size */
     max-height: 40px; /* Reduced size */
+}
+@media (max-width: 768px) {
+    #contact-us {
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    .contact-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        gap: 15px; /* Space between items */
+    }
+
+    .contact-item {
+        width: 90%; /* Full width on mobile */
+        max-width: 350px; /* Limit max width */
+        padding: 10px; /* Reduced padding */
+    }
+
+    .contact-item h3 {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+    }
+
+    .contact-item p {
+        font-size: 0.9rem; /* Adjust font size for mobile */
+    }
 }
