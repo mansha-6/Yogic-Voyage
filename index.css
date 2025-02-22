@@ -430,7 +430,7 @@ p {
     max-width: 60%;
     line-height: 1.6;
     white-space: nowrap; /* Prevent text from wrapping */
-    margin-right: 20%;
+    margin-right: 9%;
     margin-top: 3%;
 }
 
@@ -460,6 +460,7 @@ p {
     line-height: 1.6;
     white-space: nowrap; /* Prevent text from wrapping */
     margin-right: 20%;
+    align-items: center;
    
 }
 
