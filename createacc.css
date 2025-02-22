@@ -49,42 +49,42 @@ body {
 /* Create Account Form */
 .create-account-container {
     /* background: white; */
-    width: 1300px;
-    height: 850px;
-    padding: 40px;
+    width: 40vw;
+    height: 50vh;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     position: relative;
-    margin-left: 500px;
-    margin-top: 400px;
+    margin-left: 50px;
+    margin-top: 100px;
 }
 
 h1 {
-    font-size: 4rem;
-    margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 20px;
     color: #333;
 }
 
 /* Form Styling */
 .form-group {
-    margin-bottom: 30px;
+    margin-bottom: 13px;
     text-align: left;
 }
 
 label {
-    font-size: 2rem;
-    color: #454444;
+    font-size: 1.2rem;
+    color: #3b3a3a;
     display: block;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 4px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
 }
 
 .submit-button {
@@ -92,9 +92,9 @@ input {
     background-color: #ff7e39;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 8px;
     border-radius: 5px;
-    font-size: 2.2rem;
+    font-size: 1.2rem;
     cursor: pointer;
     margin-top: 10px;
 }
@@ -106,8 +106,8 @@ input {
 /* Back to Home Link */
 .back-button {
     display: block;
-    margin-top: 20px;
-    font-size: 2.5rem;
+    margin-top: 10px;
+    font-size: 1.1rem;
     color: #474646;
     text-decoration: none;
 }
