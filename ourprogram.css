@@ -1,186 +1,197 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f3f3f3;
-    min-width: 33%;
-    max-width: 100%;
+    box-sizing: border-box;
 }
 
-/* Second Section */
-/* .bg-image {
+body {
+    /* font-family: 'Arial', sans-serif; */    font-family: 'Roboto', sans-serif; /* Change to Roboto */
+
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main Wrapper */
+.program-wrapper {
+    position: relative;
+    min-height: 100vh; 
+    width: 100%;
+    padding: 0; 
+}
+
+/* Background Overlay */
+.bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url('./images/yogic-1.1.jpg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: brightness(50%); 
-    height: 90vh;
-    width: 174vh;
-    object-fit: cover;
-    display: block;
-    width: 100%; 
-    z-index: 0;
-} */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Set to transparent to remove gray color */
+    z-index: 1; 
+}
+/* Programs Section */
 #our-programs {
-    background-image: url('./images/line2.png'); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    padding: 90px 20px; /* Adds padding for spacing */
-    color: white; /* Ensures text is visible on darker backgrounds */
-    text-align: center; /* Centers the text */
-    position: relative; /* Ensures the overlay is positioned correctly */
-    z-index: 1; /* Ensures the content stays on top */
-}
-
-#our-programs::before {
-    content: ""; /* Creates an empty pseudo-element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    z-index: -1; /* Places it behind the content */
-}
-
-.program-section {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 20px;
-    padding: 50px;
     position: relative;
-    z-index: 1;
-    /* height: 90vh; */
-    height: auto;
-    width: 98.3%;
-    margin-left: -20px;
-    /* margin: 500px auto; */
-    background-image: url('./images/yogic-1.1.jpg'); /* Add your image here */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents image repetition */
-    border-radius: 10px; /* Optional: for rounded edges */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add some depth */
-    overflow: hidden; /* Ensure overlay fits within the section */
-    transition: background-color 0.3s, color 0.3s;
-}
-.program-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
-    z-index: 0;
-}
-.program-column {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for contrast */
-    border-radius: 10px ;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    z-index: 1;
-    flex: 1; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    /* background-color: rgb(60, 90, 60); */
-    /* transition: background-color 0.2s ; */
-}
-/* .program-column:hover {
-    transform: scale(1.05); */
-    /* background-color: rgba(255, 153, 102, 0.9); 
-    border-color: rgba(255, 153, 102, 1); */
-/* } */
-.imagine{
-    margin-bottom: 20px;
-    height: 2100px;
-    width: auto;
+    z-index: 2;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0; 
 }
 
-.program-column h3 {
-    font-size: 5rem;
-    margin-bottom: 15px;
-    font-style: italic;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #f7f6fa;
-    border-radius: 50px;
-    background-color: rgba(60, 90, 60); 
-    padding: 20px;
-    border: 5px solid rgb(243, 190, 190);
-    
-
-}
+/* Section Header */
 .section-header {
-    font-size: 6.5rem;
-    text-align: center; /* Center align text */
-    margin-bottom: 10px; /* Add space below the header */
-    margin-top: 10px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-
-    /* Gradient Text Styling */
-    background: linear-gradient(90deg, #FF5733, #33C1FF); /* Two colors */
-    -webkit-background-clip: text; /* Clips the gradient to text */
-    -webkit-text-fill-color: transparent; /* Makes the text fill transparent */
-    background-clip: text; /* Ensures it works in modern browsers */
-    
-}
-
-.program-details img {
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    background: url('https://media.istockphoto.com/id/1165665197/vector/arrows-abstract-modern-background_01.jpg?s=2048x2048&w=is&k=20&c=q8mkEMimy8iiYP018_FC8POEvYrYFHGi4823n1qcUyY=') center/cover no-repeat; 
+    padding: 3.5rem;  
+    border-radius: 10px; 
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    /* color: #f0e68c;  */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    mix-blend-mode: difference; 
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive; /* Elegant cursive font */
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: linear-gradient(45deg, #2c2c2c, #8b6f47, #d4af37); 
 }
 
-.program-details a {
-    display: block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #6a4cad;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
+/* Program Section Layout */
+.program-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 4rem;
+    background-image: url('https://images.unsplash.com/photo-1607300110392-2cdd0796d360?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    border-radius: 10px; /* Optional: Rounded corners */
+    width: 100%;
 }
 
-.program-details a:hover {
-    background-color: #4b3a94;
+/* Program Columns */
+.program-column {
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-size: cover; /* Cover the entire column */
+    background-position: center; /* Center the image */
 }
 
-/* .program-column {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    flex: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center; 
-} */
+.program-column:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure smooth transition */
+}
 
-@media (width: 768px) {
+/* Program Headers */
+.program-column h3 {
+    text-align: center;
+    background: url('https://plus.unsplash.com/premium_photo-1671829480432-9b0f10d869ef?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; 
+    padding: 1.9rem;  
+    border-radius: 20px; 
+    width: 100%;
+    /* color: #f0e68c;  */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    /* mix-blend-mode: difference;  */
+    /* font-family: 'Poppins', sans-serif; */
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive; /* Elegant cursive font */
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: linear-gradient(45deg, #2c2c2c, #8b6f47, #d4af37);
+}
+
+/* Image Container */
+.image-container {
+    width: 500vw;
+    height: 110vh;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 44vw;
+    height: 110vh;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+}
+
+.program-column:hover .image-container img {
+    transform: scale(1.1);
+}
+
+/* Program Content */
+.program-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.program-content p {
+    color: #666;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .section-header {
+        font-size: 3rem;
+    }
+    
+    #our-programs {
+        max-width: 1200px;
+    }
+    
+    .image-container {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .program-wrapper {
+        padding: 0; /* Remove padding for mobile */
+    }
+
+    .section-header {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
     .program-section {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center-align items */
-        gap: 20px; /* Add spacing between items */
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
-    .program-column {
-        width: 100%; /* Allow full width */
+
+    .image-container {
+        height: 300px;
+    }
+    
+    .program-column h3 {
+        font-size: 1.8rem;
+        padding: 1.5rem;
     }
 }
 
+@media screen and (max-width: 480px) {
+    .section-header {
+        font-size: 2rem;
+    }
 
+    .program-column h3 {
+        font-size: 1.5rem;
+    }
 
-
-
-
+    .program-content p {
+        font-size: 1rem;
+    }
+    
+    .image-container {
+        height: 250px;
+    }
+}

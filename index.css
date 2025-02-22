@@ -286,124 +286,164 @@ p {
     .offerings-subtitle {
         font-size: 1.5rem; /* Adjusted for better responsiveness */
     }
-}
-
-/* New Year Section */
+}  
+ /* New Year Section */
 .new-year-section {
-    min-height: 60vh; /* Reduced height */
+    position: relative;
+    height: 100vh; /* Ensure full-page background */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1467810563316-b5476525c0f9?auto=format&fit=crop&q=80');
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.new-year-content {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 2;
-    padding: 2rem; /* Reduced padding */
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-}
-
-.new-year-title {
-    font-size: 3rem; /* Reduced font size */
-    font-weight: bold;
-    margin-bottom: 1rem; /* Reduced margin */
-    background: linear-gradient(45deg, #ff7f50, #ffd700);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.new-year-subtitle {
-    font-size: 1.5rem; /* Reduced font size */
-    margin-bottom: 1.5rem; /* Reduced margin */
-    max-width: 600px; /* Adjusted max width */
-    margin-right: auto;
-    margin-left: auto;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow:visible; /* Hide overflow if text is too long */
-}
-
-.explore-button {
-    background: linear-gradient(45deg, #ff7f50, #ffd700);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem; /* Reduced padding */
-    font-size: 1.2rem; /* Reduced font size */
-    border-radius: 1rem; /* Reduced border radius */
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
-}
-
-.explore-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 127, 80, 0.4);
-
-}
-@keyframes firework {
-    0% {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0;
-    }
-}
-
-.new-year-section::before {
-    content: '';
+/* Background Image */
+.background-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    z-index: 1;
+    width: 100%;
+    height: 100%; /* Ensure it covers the whole section */
+    background-image: url("https://images.unsplash.com/photo-1521356279905-e1d72a443574?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    animation: fadeInBackground 2s ease-in-out;
+    background-color: black;
+    background-attachment: fixed;
 }
-@media (max-width: 768px) {
-    .offerings-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .offering-card {
-        padding: 20px;
-    }
-    
-    .offerings-title {
-        font-size: 28px;
-    }
-    
-    .offerings-subtitle {
-        font-size: 16px;
-    }
 
+/* Soft Overlay without Blur */
+.background-blur {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Keep this for a dark overlay */
+    z-index: 0; /* Above background, but below content */
+}
+
+/* Content Styles */
+.new-year-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+}
+
+.new-year-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ff8426, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideInTitle 1.5s ease-out forwards;
+}
+
+.new-year-subtitle {
+    font-size: 2rem;
+    color: rgba(200, 106, 11, 0.9);
+    font-weight: bold;
+    margin-bottom: 2rem;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1 !important;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Button Styling */
+.explore-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(to right, #ff8426, #ffd700);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-out forwards 1s;
+}
+
+.explore-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
+.explore-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #ff8426, #ffd700);
+    opacity: 0.5;
+    border-radius: 50px;
+    transform: scale(1.2);
+    transition: transform 0.4s ease;
+}
+
+.explore-button:hover::before {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes slideInTitle {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .new-year-title {
-        font-size: 42px;
+        font-size: 2.5rem;
     }
     
     .new-year-subtitle {
-        font-size: 18px;
+        font-size: 1.25rem;
     }
     
     .explore-button {
-        padding: 12px 30px;
-        font-size: 16px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
     }
 }
-
+  
 /* Fourth Section */
 .fourth-section {
     display: flex;
@@ -411,7 +451,7 @@ p {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 20vh;
+    height: 23vh;
     background: linear-gradient(to bottom, #f4f2f2, #c8e0f9);
     text-align: center;
     /* position: relative; */
@@ -441,7 +481,7 @@ p {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 32vh;
+    height: 38vh;
     background: linear-gradient(to bottom, #cadef2, #ffffff);
     text-align: center;
     position: relative;    
@@ -454,15 +494,16 @@ p {
 }
 
 .fifth-section p {
-    font-size: 1.3rem; /* Reduced font size */
-    color: #292929;
-    max-width: 60%;
-    line-height: 1.6;
-    white-space: nowrap; /* Prevent text from wrapping */
-    margin-right: 20%;
-    align-items: center;
-   
+    font-size: 1.3rem; /* Slightly larger for better readability */
+    color: #2c2c2c; /* Dark gray for contrast */
+    width: 100%; /* Full width of the container */
+    max-width: none; /* Removes width restriction */
+    line-height: 1.8; /* Increased line height for better readability */
+    text-align: center; /* Ensures text remains well-aligned */
+    white-space: normal; /* Allows text wrapping */
+    padding: 0 10%; /* Adds space on both sides for balanced layout */
 }
+
 
 .fifth-section ul {
     list-style: none;
