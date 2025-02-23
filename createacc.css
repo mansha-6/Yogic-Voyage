@@ -49,14 +49,14 @@ body {
 /* Create Account Form */
 .create-account-container {
     /* background: white; */
-    width: 40vw;
+    width: 36vw;
     height: 50vh;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     position: relative;
-    margin-left: 50px;
+    margin-left: 35px;
     margin-top: 100px;
 }
 
@@ -108,10 +108,98 @@ input {
     display: block;
     margin-top: 10px;
     font-size: 1.1rem;
-    color: #474646;
+    color: #262626;
     text-decoration: none;
 }
 
 .back-button:hover {
     text-decoration: underline;
+}
+/* Media Queries for Responsiveness */
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .create-account-container {
+        width: 60vw; /* Increase width for tablet screens */
+        height: auto; /* Allow height to adjust based on content */
+        margin-left: 20px; /* Center the container */
+        margin-top: 80px; /* Adjust top margin */
+        padding: 25px; /* Adjust padding */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Adjust font size for tablet */
+    }
+
+    label {
+        font-size: 1.1rem; /* Adjust label font size for tablet */
+    }
+
+    input {
+        font-size: 0.9rem; /* Adjust input font size for tablet */
+    }
+
+    .submit-button {
+        font-size: 1.1rem; /* Adjust button font size for tablet */
+    }
+
+    .back-button {
+        font-size: 1.1rem; /* Adjust back button font size for tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .create-account-container {
+        width: 80vw; /* Adjust width for smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+        margin-left: 0; /* Center the container */
+        margin-top: 50px; /* Adjust top margin */
+        padding: 20px; /* Reduce padding */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust font size */
+    }
+
+    label {
+        font-size: 1rem; /* Adjust label font size */
+    }
+
+    input {
+        font-size: 0.9rem; /* Adjust input font size */
+    }
+
+    .submit-button {
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    .back-button {
+        font-size: 1rem; /* Adjust back button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .create-account-container {
+        width: 90vw; /* Further adjust width for very small screens */
+        padding: 15px; /* Further reduce padding */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Further adjust font size */
+    }
+
+    label {
+        font-size: 0.9rem; /* Further adjust label font size */
+    }
+
+    input {
+        font-size: 0.8rem; /* Further adjust input font size */
+    }
+
+    .submit-button {
+        font-size: 0.9rem; /* Further adjust button font size */
+    }
+
+    .back-button {
+        font-size: 0.9rem; /* Further adjust back button font size */
+    }
 }

@@ -64,8 +64,8 @@ body {
 .program-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    padding: 4rem;
+    gap: 2rem; /* Reduced gap */
+    padding: 2rem; /* Reduced padding */
     background-image: url('https://images.unsplash.com/photo-1607300110392-2cdd0796d360?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
     border-radius: 10px; /* Optional: Rounded corners */
     width: 100%;
@@ -73,43 +73,42 @@ body {
 
 /* Program Columns */
 .program-column {
+    /* background-size: cover; 
+    background-position: center;  */
     background: rgba(255, 255, 255, 0.95); 
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    background-size: cover; /* Cover the entire column */
-    background-position: center; /* Center the image */
+    min-height: auto; 
+    width: 91%;
 }
 
 .program-column:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05); /* Slightly increase size */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure smooth transition */
+    transform: scale(1.05); /* Slightly increase size */
 }
 
 /* Program Headers */
 .program-column h3 {
     text-align: center;
     background: url('https://plus.unsplash.com/premium_photo-1671829480432-9b0f10d869ef?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat; 
-    padding: 1.9rem;  
+    padding: 1.5rem;  
     border-radius: 20px; 
     width: 100%;
-    /* color: #f0e68c;  */
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     /* mix-blend-mode: difference;  */
     /* font-family: 'Poppins', sans-serif; */
-    font-weight: 700;
     font-family: 'Dancing Script', cursive; /* Elegant cursive font */
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: linear-gradient(45deg, #2c2c2c, #8b6f47, #d4af37);
 }
 
-/* Image Container */
 .image-container {
-    width: 500vw;
+    /* width: 500vw; */
+    width: 42vw;
     height: 110vh;
     overflow: hidden;
 }
@@ -138,60 +137,62 @@ body {
     margin: 0;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1200px) {
-    .section-header {
-        font-size: 3rem;
-    }
-    
-    #our-programs {
-        max-width: 1200px;
-    }
-    
-    .image-container {
-        height: 350px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .program-wrapper {
-        padding: 0; /* Remove padding for mobile */
-    }
-
-    .section-header {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-
+@media screen and (max-width: 1024px) {
     .program-section {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        grid-template-columns: 1fr; /* Single column for better visibility */
+        padding: 2rem;
+        gap: 2rem; /* Maintain spacing */
+    }
+
+    .program-column {
+        min-height: 600px; /* Increased height */
+        width: 80%; /* Increased width */
+        margin: 0 auto; /* Center the section */
+    }
+
+    .program-column h3 {
+        font-size: 2.2rem; /* Adjusted header size */
+        padding: 1.2rem;
+    }
+
+    .program-content p {
+        font-size: 1.2rem;
     }
 
     .image-container {
-        height: 300px;
+        height: auto;
+        width: 100%;
     }
-    
-    .program-column h3 {
-        font-size: 1.8rem;
-        padding: 1.5rem;
+
+    .image-container img {
+        object-fit: cover; /* Ensures image fills properly */
+        width: 100%;
+        height: 100%;
     }
 }
 
+/* Extra Small Mobile Styles */
 @media screen and (max-width: 480px) {
-    .section-header {
-        font-size: 2rem;
+    .program-column {
+        min-height: 450px; /* Slightly increased height */
+        width: 100%;
     }
 
     .program-column h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem; /* Adjust header */
     }
 
     .program-content p {
         font-size: 1rem;
     }
-    
+
     .image-container {
-        height: 250px;
+        height: auto;
+        width: 100%;
+    }
+
+    .image-container img {
+        object-fit: contain;
+        height: auto;
     }
 }
