@@ -143,3 +143,97 @@ body {
     0% { transform: translateY(20px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .membership-container {
+        width: 60%;
+        padding: 30px;
+    }
+
+    .membership-container h1 {
+        font-size: 2rem;
+    }
+
+    .plan-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+
+    .trial-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .background-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+    }
+
+    .membership-container {
+        width: 80%;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .plans {
+        flex-direction: column;
+    }
+
+    .plan-card {
+        text-align: center;
+    }
+
+    .badge {
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+
+    .trial-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .membership-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .plan-card h1 {
+        font-size: 1.3rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
+    }
+
+    .trial-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .features li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .features .duration {
+        padding-right: 0;
+        margin-top: 5px;
+    }
+}
