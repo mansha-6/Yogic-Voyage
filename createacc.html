@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link rel="stylesheet" href="createacc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
     <div class="background-container">
@@ -26,34 +28,29 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Email Address" required>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                </div>
+                
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                            <span class="password-toggle-icon">
+                                <i class="fa-solid fa-eye"></i> <!-- Default eye icon -->
+                            </span>
+                        </div>
+                    </div>
+                    
                 <button type="submit" class="submit-button">Create Account</button>
+                <a href="index.html" class="back-button">Back to Home</a> 
+
+                <p id="password-strength" style="color: red; font-size: 14px; margin-top: 10px;"></p>
+                <p id="signup-success" style="color: green; font-size: 14px; margin-top: 10px;"></p>
             </form>
-            <a href="index.html" class="back-button">Back to Home</a>  
+            
+           
         </div>
     </div>
 
-    <script>
-        document.getElementById("createAccountForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
+    <script src="createacc.js"></script>
 
-            const firstName = document.getElementById("first-name").value.trim();
-            const lastName = document.getElementById("last-name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
-
-            if (!firstName || !lastName || !email || !password) {
-                alert("Please fill in all fields.");
-                return;
-            }
-
-            // Simulating backend processing
-            alert("Account created successfully!");
-            window.location.href = "index.html";//index.html // Redirect to home page after signup
-        });
-    </script>
 </body>
 </html>

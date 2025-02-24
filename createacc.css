@@ -115,8 +115,25 @@ input {
 .back-button:hover {
     text-decoration: underline;
 }
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+}
+
+.password-toggle-icon:hover {
+    color: #000;
+}
+
 /* Media Queries for Responsiveness */
-/* Media Queries for Responsiveness */
+
 @media (max-width: 1024px) and (min-width: 769px) {
     .create-account-container {
         width: 60vw; /* Increase width for tablet screens */

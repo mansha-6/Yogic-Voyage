@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 <body>
     <div class="background-container">
@@ -28,10 +30,13 @@
                     <label for="password">Password</label>
                     <div class="password-container">
                         <input type="password" id="password" placeholder="Password" required>
-                        <span class="toggle-password">👁️</span>
+                        <span class="toggle-password"><i class="fa-solid fa-eye"></i></span> <!-- Default Eye Icon -->
                     </div>
+                    
                 </div>
                 <button type="submit" class="sign-in-button" id="signInBtn">SIGN IN</button> <!-- ✅ Changed to "submit" -->
+                <p id="signin-error" style="color: red; font-size: 14px;"></p>
+
             </form>
             <a href="#" class="forgot-password">Forgot your password?</a>
             <div class="divider">

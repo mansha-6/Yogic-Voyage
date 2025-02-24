@@ -1,61 +1,21 @@
-/// Mongoose Install
-// ConnectDB Funciton using mongoose
-//  Connection URL mongoose.connect(URL)
-// Schema login:str,requied, password
-// Create a model using schema
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const authRoutes = require("./routes/authRoutes"); // Import your auth routes
 
+const app = express();
 
+app.use(express.json());
+app.use(cors());
 
+// Connect to MongoDB
+const MONGO_URI = "mongodb://127.0.0.1:27017/yogaDB"; 
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
-const http = require('http');
-const url = require('url');
-const bcrypt = require('bcryptjs');
-const { MongoClient } = require('mongodb');
-require('dotenv').config();
+// Mount routes under /auth
+app.use("/auth", authRoutes);
 
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/yoga_users";  // Ensure correct URI
-const client = new MongoClient(mongoURI);
-
-async function connectDB() {
-    try {
-        await client.connect();
-        console.log("✅ Connected to MongoDB");
-    } catch (err) {
-        console.error("❌ MongoDB Connection Failed:", err);
-        process.exit(1);
-    }
-}
-
-connectDB();
-const db = client.db("yoga_users");
-const usersCollection = db.collection("users");
-
-const server = http.createServer(async (req, res) => {
-    const parsedUrl = url.parse(req.url, true);
-
-    if (req.method === "POST" && parsedUrl.pathname === "/signin") {
-        let body = '';
-        req.on('data', chunk => { body += chunk.toString(); });
-        req.on('end', async () => {
-            const { email, password } = JSON.parse(body);
-
-            // Hash password before storing
-            const hashedPassword = await bcrypt.hash(password, 10);
-
-            try {
-                await usersCollection.insertOne({ email, password: hashedPassword });
-
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ message: "Sign-In Successful", redirect: "main.html" }));
-            } catch (error) {
-                res.writeHead(400);
-                res.end("User already exists or error occurred");
-            }
-        });
-    } else {
-        res.writeHead(404);
-        res.end("Route not found");
-    }
-});
-
-server.listen(5000, () => console.log("🚀 Server running on port 5000"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

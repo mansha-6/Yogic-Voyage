@@ -130,6 +130,23 @@ input {
 .sign-in-button:hover {
     background-color: #e56c2c;
 }
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+}
+
+.password-toggle-icon:hover {
+    color: #000;
+}
+
 
 /* Links */
 .forgot-password {
