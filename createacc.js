@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
     const passwordStrength = document.getElementById("password-strength");
     const signupSuccess = document.getElementById("signup-success");
-    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // Replace with your actual backend URL
+    const API_BASE_URL = "https://yogic-voyage-backend-dyg8de4ns-manshas-projects-91db753e.vercel.app";
 
     // ✅ Handle Sign-Up Form Submission
     createAccountForm.addEventListener("submit", async (event) => {
@@ -36,12 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // ✅ Send Data to Backend
         try {
-            const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+             fetch(`${API_BASE_URL}/auth/signup`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ firstName, lastName, email, password }), // Fixed missing firstName & lastName
-                credentials: "include",
-            });
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+              })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error:", error));
 
             const data = await response.json();
 

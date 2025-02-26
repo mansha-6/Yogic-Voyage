@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("signin-password");
     const signinErrorMessage = document.getElementById("signin-error");
     const togglePassword = document.querySelector(".toggle-password i");
-    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // Replace with your actual backend URL
+    const API_BASE_URL = "https://yogic-voyage-backend-dyg8de4ns-manshas-projects-91db753e.vercel.app";
 
     // ✅ Handle Sign-In Form Submission
     signinForm.addEventListener("submit", async function (event) {
@@ -24,12 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/auth/signin`, {
+            fetch(`${API_BASE_URL}/auth/signin`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                  "Content-Type": "application/json",
+                },
                 body: JSON.stringify({ email, password }),
-                credentials: "include",
-            });
+              })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error:", error));
 
             const data = await response.json();
 
