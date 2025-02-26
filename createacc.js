@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
     const passwordStrength = document.getElementById("password-strength");
     const signupSuccess = document.getElementById("signup-success");
-    const API_BASE_URL = "https://yogic-voyage-backend-dyg8de4ns-manshas-projects-91db753e.vercel.app";
+    const API_BASE_URL = "https://vercel.com/manshas-projects-91db753e/yogic-voyage-backend/H6xdBtnKph4fcPuVnoyn3zTKDsQA";
 
     // ✅ Handle Sign-Up Form Submission
     createAccountForm.addEventListener("submit", async (event) => {

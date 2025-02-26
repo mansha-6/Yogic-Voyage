@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("signin-password");
     const signinErrorMessage = document.getElementById("signin-error");
     const togglePassword = document.querySelector(".toggle-password i");
-    const API_BASE_URL = "https://yogic-voyage-backend-dyg8de4ns-manshas-projects-91db753e.vercel.app";
+    const API_BASE_URL = "https://vercel.com/manshas-projects-91db753e/yogic-voyage-backend/H6xdBtnKph4fcPuVnoyn3zTKDsQA";
 
     // ✅ Handle Sign-In Form Submission
     signinForm.addEventListener("submit", async function (event) {
