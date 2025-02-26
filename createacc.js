@@ -8,11 +8,18 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
     const passwordStrength = document.getElementById("password-strength");
     const signupSuccess = document.getElementById("signup-success");
 
+    // ✅ Check if fields are empty
+    if (!firstName || !lastName || !email || !password) {
+        signupSuccess.textContent = "⚠️ All fields are required!";
+        signupSuccess.style.color = "red";
+        return;
+    }
+
     // ✅ Password Strength Check
     if (password.length < 8) {
         passwordStrength.textContent = "❌ Password must be at least 8 characters long.";
         passwordStrength.style.color = "red";
-        return; // Stop form submission
+        return;
     } else {
         passwordStrength.textContent = "✅ Strong password.";
         passwordStrength.style.color = "green";
@@ -23,7 +30,8 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
         const response = await fetch("https://yogic-voyage-backend.vercel.app/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ firstName, lastName, email, password })
+            body: JSON.stringify({ firstName, lastName, email, password }),
+            mode: "cors"
         });
 
         const data = await response.json();
@@ -34,7 +42,7 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
 
             // ✅ Redirect to Sign-In Page after 2 seconds
             setTimeout(() => {
-                window.location.href = "signin.html"; 
+                window.location.replace("signin.html"); 
             }, 2000);
         } else {
             signupSuccess.textContent = "❌ " + (data.error || "Something went wrong.");
@@ -45,19 +53,20 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
         signupSuccess.style.color = "red";
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const passwordField = document.getElementById("password");
-    const togglePassword = document.querySelector(".password-toggle-icon i");
 
-    togglePassword.addEventListener("click", function () {
-        if (passwordField.type === "password") {
-            passwordField.type = "text"; // Show password
-            togglePassword.classList.remove("fa-eye");
-            togglePassword.classList.add("fa-eye-slash"); // Eye with Slash
-        } else {
-            passwordField.type = "password"; // Hide password
-            togglePassword.classList.remove("fa-eye-slash");
-            togglePassword.classList.add("fa-eye"); // Regular Eye
-        }
+// ✅ Password Toggle for Signup & Signin
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".password-toggle").forEach(toggle => {
+        toggle.addEventListener("click", function () {
+            const passwordField = this.previousElementSibling;
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                this.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
     });
 });
+
