@@ -23,12 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch("https://yogic-voyage-backend.vercel.app/auth/signin", {
+            const response = await fetch("http://localhost:3000/auth/signin", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
-                mode: "cors"
+                credentials: "include"  // Add this if using cookies/session
             });
+            
 
             const data = await response.json();
 

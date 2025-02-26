@@ -27,12 +27,13 @@ document.getElementById("createAccountForm").addEventListener("submit", async (e
 
     // ✅ Send Data to Backend
     try {
-        const response = await fetch("https://yogic-voyage-backend.vercel.app/auth/signup", {
+        const response = await fetch("http://localhost:3000/auth/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ firstName, lastName, email, password }),
-            mode: "cors"
+            body: JSON.stringify({ email, password }),
+            credentials: "include"  // Add this if using cookies/session
         });
+        
 
         const data = await response.json();
 
