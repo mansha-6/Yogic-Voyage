@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("signin-password");
     const signinErrorMessage = document.getElementById("signin-error");
     const togglePassword = document.querySelector(".toggle-password i");
+    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // Replace with your actual backend URL
 
     // ✅ Handle Sign-In Form Submission
     signinForm.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Prevent form refresh
+        event.preventDefault(); // Prevent page refresh
 
         // ✅ Clear previous messages
         signinErrorMessage.textContent = "";
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
 
-        // ✅ Check for empty fields
+        // ✅ Validate Empty Fields
         if (!email || !password) {
             signinErrorMessage.textContent = "⚠️ Please enter both email and password.";
             signinErrorMessage.style.color = "red";
@@ -23,13 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch("http://localhost:3000/auth/signin", {
+            const response = await fetch(`${API_BASE_URL}/auth/signin`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
-                credentials: "include"  // Add this if using cookies/session
+                credentials: "include",
             });
-            
 
             const data = await response.json();
 
@@ -52,13 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ✅ Password Toggle Visibility
-    togglePassword.addEventListener("click", function () {
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text"; // Show password
-            togglePassword.classList.replace("fa-eye", "fa-eye-slash");
-        } else {
-            passwordInput.type = "password"; // Hide password
-            togglePassword.classList.replace("fa-eye-slash", "fa-eye");
-        }
-    });
+    if (togglePassword) {
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text"; // Show password
+                togglePassword.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordInput.type = "password"; // Hide password
+                togglePassword.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+    }
 });

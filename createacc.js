@@ -1,62 +1,69 @@
-document.getElementById("createAccountForm").addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent form from refreshing
-
-    const firstName = document.getElementById("first-name").value;
-    const lastName = document.getElementById("last-name").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", function () {
+    const createAccountForm = document.getElementById("createAccountForm");
+    const firstNameInput = document.getElementById("first-name");
+    const lastNameInput = document.getElementById("last-name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
     const passwordStrength = document.getElementById("password-strength");
     const signupSuccess = document.getElementById("signup-success");
+    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // Replace with your actual backend URL
 
-    // ✅ Check if fields are empty
-    if (!firstName || !lastName || !email || !password) {
-        signupSuccess.textContent = "⚠️ All fields are required!";
-        signupSuccess.style.color = "red";
-        return;
-    }
+    // ✅ Handle Sign-Up Form Submission
+    createAccountForm.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent page reload
 
-    // ✅ Password Strength Check
-    if (password.length < 8) {
-        passwordStrength.textContent = "❌ Password must be at least 8 characters long.";
-        passwordStrength.style.color = "red";
-        return;
-    } else {
-        passwordStrength.textContent = "✅ Strong password.";
-        passwordStrength.style.color = "green";
-    }
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
-    // ✅ Send Data to Backend
-    try {
-        const response = await fetch("http://localhost:3000/auth/signup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-            credentials: "include"  // Add this if using cookies/session
-        });
-        
+        // ✅ Validate Fields
+        if (!firstName || !lastName || !email || !password) {
+            signupSuccess.textContent = "⚠️ All fields are required!";
+            signupSuccess.style.color = "red";
+            return;
+        }
 
-        const data = await response.json();
-
-        if (response.ok) {
-            signupSuccess.textContent = "✅ Account created successfully! Redirecting...";
-            signupSuccess.style.color = "green";
-
-            // ✅ Redirect to Sign-In Page after 2 seconds
-            setTimeout(() => {
-                window.location.replace("signin.html"); 
-            }, 2000);
+        // ✅ Check Password Strength
+        if (password.length < 8) {
+            passwordStrength.textContent = "❌ Password must be at least 8 characters.";
+            passwordStrength.style.color = "red";
+            return;
         } else {
-            signupSuccess.textContent = "❌ " + (data.error || "Something went wrong.");
+            passwordStrength.textContent = "✅ Strong password.";
+            passwordStrength.style.color = "green";
+        }
+
+        // ✅ Send Data to Backend
+        try {
+            const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ firstName, lastName, email, password }), // Fixed missing firstName & lastName
+                credentials: "include",
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                signupSuccess.textContent = "✅ Account created successfully! Redirecting...";
+                signupSuccess.style.color = "green";
+
+                // ✅ Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.replace("signin.html");
+                }, 2000);
+            } else {
+                signupSuccess.textContent = "❌ " + (data.error || "Something went wrong.");
+                signupSuccess.style.color = "red";
+            }
+        } catch (error) {
+            signupSuccess.textContent = "❌ Error: Unable to connect to server.";
             signupSuccess.style.color = "red";
         }
-    } catch (error) {
-        signupSuccess.textContent = "❌ Error: Unable to connect to server.";
-        signupSuccess.style.color = "red";
-    }
-});
+    });
 
-// ✅ Password Toggle for Signup & Signin
-document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Password Toggle Feature
     document.querySelectorAll(".password-toggle").forEach(toggle => {
         toggle.addEventListener("click", function () {
             const passwordField = this.previousElementSibling;
@@ -70,4 +77,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
