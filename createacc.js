@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
     const passwordStrength = document.getElementById("password-strength");
     const signupSuccess = document.getElementById("signup-success");
-    const API_BASE_URL = "https://vercel.com/manshas-projects-91db753e/yogic-voyage-backend/H6xdBtnKph4fcPuVnoyn3zTKDsQA";
+    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // ✅ Removed extra slash
 
     // ✅ Handle Sign-Up Form Submission
     createAccountForm.addEventListener("submit", async (event) => {
@@ -36,24 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // ✅ Send Data to Backend
         try {
-             fetch(`${API_BASE_URL}/auth/signup`, {
+            const response = await fetch(`${API_BASE_URL}/auth/signup`, {
                 method: "POST",
                 headers: {
-                  "Content-Type": "application/json",
+                    "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email, password }),
-              })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error("Error:", error));
+                body: JSON.stringify({ firstName, lastName, email, password }),
+            });
 
-            const data = await response.json();
+            const data = await response.json(); // ✅ Parse response properly
 
             if (response.ok) {
                 signupSuccess.textContent = "✅ Account created successfully! Redirecting...";
                 signupSuccess.style.color = "green";
 
-                // ✅ Redirect after 2 seconds
                 setTimeout(() => {
                     window.location.replace("signin.html");
                 }, 2000);
@@ -64,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             signupSuccess.textContent = "❌ Error: Unable to connect to server.";
             signupSuccess.style.color = "red";
+            console.error("Error:", error);
         }
     });
 
@@ -80,4 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
+}); // ✅ Properly closed function

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("signin-password");
     const signinErrorMessage = document.getElementById("signin-error");
     const togglePassword = document.querySelector(".toggle-password i");
-    const API_BASE_URL = "https://vercel.com/manshas-projects-91db753e/yogic-voyage-backend/H6xdBtnKph4fcPuVnoyn3zTKDsQA";
+    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // ✅ Correct API URL
 
     // ✅ Handle Sign-In Form Submission
     signinForm.addEventListener("submit", async function (event) {
@@ -24,18 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            fetch(`${API_BASE_URL}/auth/signin`, {
+            // ✅ Await Fetch Response Properly
+            const response = await fetch(`${API_BASE_URL}/auth/signin`, {
                 method: "POST",
                 headers: {
-                  "Content-Type": "application/json",
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ email, password }),
-              })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error("Error:", error));
+            });
 
-            const data = await response.json();
+            const data = await response.json(); // ✅ Parse JSON once
 
             if (response.ok) {
                 signinErrorMessage.textContent = "✅ Sign-In Successful! Redirecting...";
@@ -52,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             signinErrorMessage.textContent = "⚠️ Server error. Please try again later.";
             signinErrorMessage.style.color = "red";
+            console.error("Error:", error);
         }
     });
 
