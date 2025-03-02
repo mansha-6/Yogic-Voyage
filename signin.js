@@ -1,22 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
     const signinForm = document.getElementById("signin-form");
-    const emailInput = document.getElementById("signin-email");
-    const passwordInput = document.getElementById("signin-password");
+    const emailInput = document.getElementById("email"); // ✅ Corrected ID
+    const passwordInput = document.getElementById("password"); // ✅ Corrected ID
     const signinErrorMessage = document.getElementById("signin-error");
     const togglePassword = document.querySelector(".toggle-password i");
-    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app"; // ✅ Correct API URL
 
-    // ✅ Handle Sign-In Form Submission
+    if (!signinForm || !emailInput || !passwordInput || !signinErrorMessage) {
+        console.error("❌ One or more elements not found in the DOM!");
+        return;
+    }
+
+    const API_BASE_URL = "https://yogic-voyage-backend.vercel.app";
+
     signinForm.addEventListener("submit", async function (event) {
         event.preventDefault(); // Prevent page refresh
 
-        // ✅ Clear previous messages
         signinErrorMessage.textContent = "";
 
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
 
-        // ✅ Validate Empty Fields
         if (!email || !password) {
             signinErrorMessage.textContent = "⚠️ Please enter both email and password.";
             signinErrorMessage.style.color = "red";
@@ -24,25 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            // ✅ Await Fetch Response Properly
             const response = await fetch(`${API_BASE_URL}/auth/signin`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
             });
 
-            const data = await response.json(); // ✅ Parse JSON once
+            const data = await response.json();
 
             if (response.ok) {
                 signinErrorMessage.textContent = "✅ Sign-In Successful! Redirecting...";
                 signinErrorMessage.style.color = "green";
-
-                // ✅ Redirect after 2 seconds
-                setTimeout(() => {
-                    window.location.replace("index.html"); // Adjust as needed
-                }, 2000);
+                setTimeout(() => window.location.replace("index.html"), 2000);
             } else {
                 signinErrorMessage.textContent = `⚠️ ${data.error || "Invalid email or password"}`;
                 signinErrorMessage.style.color = "red";
@@ -54,14 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Password Toggle Visibility
     if (togglePassword) {
         togglePassword.addEventListener("click", function () {
             if (passwordInput.type === "password") {
-                passwordInput.type = "text"; // Show password
+                passwordInput.type = "text";
                 togglePassword.classList.replace("fa-eye", "fa-eye-slash");
             } else {
-                passwordInput.type = "password"; // Hide password
+                passwordInput.type = "password";
                 togglePassword.classList.replace("fa-eye-slash", "fa-eye");
             }
         });
